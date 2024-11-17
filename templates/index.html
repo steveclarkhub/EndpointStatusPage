@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connectivity Check</title>
+</head>
+<body>
+    <h2>Connectivity Status</h2>
+    <h3>As of: {{ time }} </h3>
+    <ul>
+        <li>DNS Server (8.8.8.8:53): {{ "Reachable" if dns_reachable else "Unreachable" }}</li>
+        <li>Google (www.google.com:443): {{ "Reachable" if google_reachable else "Unreachable" }}</li>
+    </ul>
+</body>
+</html>
