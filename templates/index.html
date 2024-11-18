@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Connectivity Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .connection-output {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            margin: 100px auto;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h2>Connectivity Status</h2>
-    <h3>As of: {{ time }} </h3>
-    <ul>
-        <li>DNS Server (8.8.8.8:53): {{ "Reachable" if dns_reachable else "Unreachable" }}</li>
-        <li>Google (www.google.com:443): {{ "Reachable" if google_reachable else "Unreachable" }}</li>
-    </ul>
+    <div class="connection-output">
+        <h2>Connectivity Status</h2>
+        <h3>As of: {{ time }} </h3>
+        <ul>
+            <li>DNS Server (8.8.8.8:53): {{ "Reachable" if dns_reachable else "Unreachable" }}</li>
+            <li>Google (www.google.com:443): {{ "Reachable" if google_reachable else "Unreachable" }}</li>
+        </ul>
+    </div>
 </body>
 </html>
