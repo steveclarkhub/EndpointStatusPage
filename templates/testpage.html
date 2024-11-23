@@ -16,9 +16,24 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 50px;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            padding-right: 40px;
+            padding-left: 40px;
             margin: 100px auto;
             max-width: 600px;
+        }
+
+        .connection-table {
+            background-color: #fff;
+            text-align: center;
+            border-collapse: collapse;
+            padding-right: 40px;
+            margin: 10px auto;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 600px;
+            
         }
 
         h1 {
@@ -36,10 +51,30 @@
     <div class="connection-output">
         <h2>Connectivity Status</h2>
         <h3>As of: {{ time }} </h3>
-        <ul>
-            <li>Entrust - 8.8.8.8:53: {{ "Reachable" if dns_reachable else "Unreachable" }}</li>
-            <li>Shopping www.amazon.com:443: {{ "Reachable" if google_reachable else "Unreachable" }}</li>
-        </ul>
+        <table class="connection-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>FQDN, Host or IP</th>
+                    <th>TCP Port</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Entrust</td>
+                    <td>8.8.8.8</td>
+                    <td>53</td>
+                    <td>{{ "Success" if dns_reachable else "Failure" }}</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>google.com</td>
+                    <td>443</td>
+                    <td>{{ "Success" if google_reachable else "Failure" }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

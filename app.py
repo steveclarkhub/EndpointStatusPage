@@ -49,12 +49,12 @@ def index():
 @app.route("/testpage")
 def testpage():
     now = datetime.now().strftime("%m-%d-%Y %H:%M:%S")
-    dns_reachable = check_connectivity("8.8.8.8", 53)
-    google_reachable = check_connectivity("www.google.com", 444)
+    dns_reachable = check_connectivity("8.8.8.8", 54)
+    google_reachable = check_connectivity("www.google.com", 443)
     return render_template("testpage.html", time=now, dns_reachable=dns_reachable, google_reachable=google_reachable)
 
 if __name__ == "__main__":
-    initialize_database()  # Initialize the database 
+    initialize_database()  # Initialize the daase 
     # # port check w/separate thread running in background
     # def background_check():
     #     while True:
